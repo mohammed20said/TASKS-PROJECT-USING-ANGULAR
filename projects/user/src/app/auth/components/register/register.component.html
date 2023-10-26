@@ -11,31 +11,34 @@
                 <h2>Register </h2>
              
         
-                <form>
+                <form [formGroup]="registerForm">
                     <mat-form-field appearance="outline" class="w-100">
                         <mat-label>Username</mat-label>
-                        <input matInput  placeholder="username">
+                        <input matInput  placeholder="username" formControlName="username">
                         <mat-error>required</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="w-100">
                         <mat-label>Email</mat-label>
-                        <input matInput  placeholder="email">
+                        <input matInput  placeholder="email" formControlName="email">
                         <mat-error>required</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="w-100">
                         <mat-label>Password</mat-label>
-                        <input matInput f placeholder="password">
+                        <input  type="password"  matInput f placeholder="password" formControlName="password">
                         <mat-error>required</mat-error>
         
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="w-100">
                         <mat-label>Confirm Password</mat-label>
-                        <input matInput   placeholder="confirm password">
+                        <input type="password"  matInput   placeholder="confirm password" formControlName="confirmPassword">
                         <mat-error>required</mat-error>
+                        <mat-hint *ngIf="registerForm.hasError('notSame')">
+                            Not matched
+                        </mat-hint>
                     </mat-form-field>
                 </form>
                 <div class="d-flex justify-content-center">
-                    <button mat-raised-button color="warn">Create Account</button>
+                    <button mat-raised-button color="warn" [disabled]="!registerForm.valid" (click)="createAccount()">Create Account</button>
                 </div>
                 <div class="d-flex justify-content-center">
                     <a routerLink="/auth/login">Have an Account ? </a>

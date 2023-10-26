@@ -8,6 +8,11 @@ import { MaterialModule } from './material/material.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { CoreModule } from './core/core.module';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -20,8 +25,13 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    
-    BrowserAnimationsModule
+    DashboardModule,
+    CoreModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(), // ToastrModule added
+    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
+    NgxPaginationModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

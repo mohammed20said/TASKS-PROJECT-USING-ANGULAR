@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  baseApi:'http://localhost:8080/tasks'
+  baseApi:'https://crud-q1vb.onrender.com/tasks'
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
